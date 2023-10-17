@@ -31,14 +31,13 @@ char *convert(long int num, int base, int flags, params_t *params)
 
 	do	{
 		*--ptr = array[N % base];
-		n /= base;
+		N /= base;
 	} while (N != 0);
 
 	if (sign)
 		*--ptr = sign;
 	return (ptr);
 }
-
 
 /**
  * print_unsigned - prints unsigned integer numbers
@@ -63,7 +62,6 @@ int print_unsigned(va_list ap, params_t *params)
 }
 
 
-
 /**
  * print_address - prints address
  * @ap: argument pointer
@@ -78,7 +76,7 @@ int print_address(va_list ap, params_t *params)
 	char *str;
 
 	if (!n)
-		return (_put ("(nil)"));
+		return (_put("(nil)"));
 
 	str = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
 	*--str = 'x';
