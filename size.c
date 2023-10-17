@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _sring - prints a string with newline
+ * _string - prints a string with newline
  * @str:  string to print
  *
  * Return: void

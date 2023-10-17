@@ -65,8 +65,8 @@ typedef struct specifier
 	int (*f)(va_list, params_t *);
 } specifier_t;
 
-/* _put.c module */
-int _puts(char *str);
+/* _size.c module */
+int _sring(char *str);
 int _putchar(int c);
 
 /* print_functions.c module */
@@ -111,8 +111,5 @@ void init_params(params_t *params, va_list ap);
 
 /* string_fields.c modoule */
 char *get_precision(char *p, params_t *params, va_list ap);
-
-/* size.c module */
-int _sring(const char *format, ...);
 
 #endif
