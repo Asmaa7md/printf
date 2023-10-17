@@ -7,7 +7,7 @@
  * @flags: argument flags
  * @params: paramater struct
  *
- * Return: ptr
+ * Return: string
  */
 
 char *convert(long int num, int base, int flags, params_t *params)
@@ -16,12 +16,12 @@ char *convert(long int num, int base, int flags, params_t *params)
 	static char buffer[50];
 	char sign = 0;
 	char *ptr;
-	unsigned long N = num;
+	unsigned long b = num;
 	(void)params;
 
 	if (!(flags & CONVERT_UNSIGNED) && num < 0)
 	{
-		N = -num;
+		b = -num;
 		sign = '-';
 
 	}
@@ -30,9 +30,9 @@ char *convert(long int num, int base, int flags, params_t *params)
 	*ptr = '\0';
 
 	do	{
-		*--ptr = array[N % base];
-		N /= base;
-	} while (N != 0);
+		*--ptr = array[b % base];
+		b /= base;
+	} while (b != 0);
 
 	if (sign)
 		*--ptr = sign;
@@ -62,6 +62,7 @@ int print_unsigned(va_list ap, params_t *params)
 }
 
 
+
 /**
  * print_address - prints address
  * @ap: argument pointer
@@ -76,7 +77,7 @@ int print_address(va_list ap, params_t *params)
 	char *str;
 
 	if (!n)
-		return (_put("(nil)"));
+		return (_puts("(nil)"));
 
 	str = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, params);
 	*--str = 'x';
