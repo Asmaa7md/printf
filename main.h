@@ -7,10 +7,11 @@
 #include <limits.h>
 #include <stdlib.h>
 
-#define NULL_STRING "(null)"
-
 #define OUTPUT_BUF_SIZE 1024
 #define BUF_FLUSH -1
+
+
+#define NULL_STRING "(null)"
 
 #define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
@@ -19,17 +20,22 @@
 
 /**
  * struct parameters - parameters struct
+ *
  * @unsign: flag if unsigned value
+ *
  * @plus_flag: on if plus_flag specified
  * @space_flag: on if hashtag_flag specified
  * @hashtag_flag: on if _flag specified
  * @zero_flag: on if _flag specified
  * @minus_flag: on if _flag specified
+ *
  * @width: field width specified
  * @precision: field precision specified
+ *
  * @h_modifier: on if h_modifier is specified
  * @l_modifier: on if l_modifier is specified
-*/
+ *
+ */
 typedef struct parameters
 {
 	unsigned int unsign			: 1;
@@ -45,20 +51,19 @@ typedef struct parameters
 
 	unsigned int h_modifier		: 1;
 	unsigned int l_modifier		: 1;
-}
-params_t;
+} params_t;
 
 /**
  * struct specifier - Struct token
+ *
  * @specifier: format token
  * @f: The function associated
-*/
+ */
 typedef struct specifier
 {
 	char *specifier;
 	int (*f)(va_list, params_t *);
-}
-specifier_t;
+} specifier_t;
 
 /* _put.c module */
 int _puts(char *str);
