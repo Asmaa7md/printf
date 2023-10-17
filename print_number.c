@@ -91,7 +91,7 @@ int print_number_right_shift(char *str, params_t *params)
 	else if (!params->plus_flag && params->space_flag && !neg2 &&
 		!params->unsign && !params->zero_flag)
 		x += _putchar(' ');
-	x += _puts(str);
+	x += _put(str);
 	return (x);
 }
 
@@ -118,7 +118,7 @@ int print_number_left_shift(char *str, params_t *params)
 		x += _putchar('+'), y++;
 	else if (params->space_flag && !neg2 && !params->unsign)
 		x += _putchar(' '), y++;
-	x += _puts(str);
+	x += _put(str);
 	while (y++ < params->width)
 		x += _putchar(pad_char);
 		return (x);
