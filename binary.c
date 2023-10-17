@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * hex - prints unsigned hex numbers in lowercase
+ * print_hex - prints unsigned hex numbers in lowercase
  * @ap: the argument pointer
  * @params: the parameters struct
  *
  * Return: bytes printed
  */
-int hex(va_list ap, params_t *params)
+int print_hex(va_list ap, params_t *params)
 {
 	int r = 0;
 	char *str;
@@ -31,13 +31,13 @@ int hex(va_list ap, params_t *params)
 }
 
 /**
- * HEX - prints unsigned hex numbers in uppercase
+ * print_HEX - prints unsigned hex numbers in uppercase
  * @ap: the argument pointer
  * @params: the parameters struct
  *
  * Return: bytes printed
  */
-int HEX(va_list ap, params_t *params)
+int print_HEX(va_list ap, params_t *params)
 {
 	int r = 0;
 	char *str;
@@ -79,13 +79,13 @@ int print_binary(va_list ap, params_t *params)
 }
 
 /**
- * octal - prints unsigned octal numbers
+ * print_octal - prints unsigned octal numbers
  * @ap: the argument pointer
  * @params: the parameters struct
  *
  * Return: bytes printed
 */
-int octal(va_list ap, params_t *params)
+int print_octal(va_list ap, params_t *params)
 {
 	int r = 0;
 	char *str;
