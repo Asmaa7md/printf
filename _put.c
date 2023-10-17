@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * _string - prints a string with newline
+ * _put  - prints a string with newline
  * @str:  string to print
  *
  * Return: void
-*/
+ */
 
-int _string(char *str)
+int _puts(char *str)
 {
 	char *a = str;
 
@@ -16,13 +16,14 @@ int _string(char *str)
 	return (str - a);
 }
 
+
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
-*/
+ */
 
 int _putchar(int c)
 {
@@ -37,5 +38,4 @@ int _putchar(int c)
 	if (c != BUF_FLUSH)
 		buf[r++] = c;
 	return (1);
-
 }
