@@ -4,12 +4,13 @@
  * print_hex - prints unsigned hex numbers in lowercase
  * @ap: the argument pointer
  * @params: the parameters struct
+ *
  * Return: bytes printed
-*/
+ */
 int print_hex(va_list ap, params_t *params)
 {
 	unsigned long l;
-	int x = 0;
+	int c = 0;
 	char *str;
 
 	if (params->l_modifier)
@@ -26,15 +27,16 @@ int print_hex(va_list ap, params_t *params)
 		*--str = '0';
 	}
 	params->unsign = 1;
-		return (x += print_number(str, params));
+	return (c += print_number(str, params));
 }
 
 /**
  * print_HEX - prints unsigned hex numbers in uppercase
  * @ap: the argument pointer
  * @params: the parameters struct
+ *
  * Return: bytes printed
-*/
+ */
 int print_HEX(va_list ap, params_t *params)
 {
 	unsigned long l;
@@ -55,14 +57,15 @@ int print_HEX(va_list ap, params_t *params)
 		*--str = '0';
 	}
 	params->unsign = 1;
-		return (c += print_number(str, params));
+	return (c += print_number(str, params));
 }
 /**
  * print_binary - prints unsigned binary number
  * @ap: the argument pointer
  * @params: the parameters struct
+ *
  * Return: bytes printed
-*/
+ */
 int print_binary(va_list ap, params_t *params)
 {
 	unsigned int n = va_arg(ap, unsigned int);
@@ -79,8 +82,9 @@ int print_binary(va_list ap, params_t *params)
  * print_octal - prints unsigned octal numbers
  * @ap: the argument pointer
  * @params: the parameters struct
+ *
  * Return: bytes printed
-*/
+ */
 int print_octal(va_list ap, params_t *params)
 {
 	unsigned long l;
@@ -97,7 +101,6 @@ int print_octal(va_list ap, params_t *params)
 
 	if (params->hashtag_flag && l)
 		*--str = '0';
-		params->unsign = 1;
-
+	params->unsign = 1;
 	return (c += print_number(str, params));
 }
