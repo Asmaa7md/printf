@@ -68,7 +68,7 @@ int print_string(va_list ap, params_t *params)
 			for (i = 0; i < pad; i++)
 				sum += _putchar(*str++);
 		else
-			sum += _puts(str);
+			sum += _put(str);
 	}
 	while (j++ < params->width)
 		sum += _putchar(pad_char);
@@ -78,7 +78,7 @@ int print_string(va_list ap, params_t *params)
 			for (i = 0; i < pad; i++)
 				sum += _putchar(*str++);
 		else
-			sum += _puts(str);
+			sum += _put(str);
 	}
 	return (sum);
 }
@@ -121,7 +121,7 @@ int print_S(va_list ap, params_t *params)
 			hex = convert(*str, 16, 0, params);
 			if (!hex[1])
 				sum += _putchar('0');
-			sum += _puts(hex);
+			sum += _put(hex);
 		}
 		else
 		{
