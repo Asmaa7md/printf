@@ -2,7 +2,7 @@
 
 /**
  * _isdigit - checks if character is digit
- * @c: character
+ * @c: the character to check
  * Return: 1 if digit, 0 otherwise
 */
 int _isdigit(int c)
@@ -13,22 +13,22 @@ int _isdigit(int c)
 /**
  * _strlen - returns the length of a string
  * @s: the string whose length to check
- * Return: length of string
+ * Return: integer length of string
 */
 int _strlen(char *s)
 {
-	int x = 0;
+	int i = 0;
 
 	while (*s++)
-		x++;
-	return (x);
+		i++;
+	return (i);
 }
 
 /**
  * print_number - prints a number with options
- * @str: base number as a string
+ * @str: the base number as a string
  * @params: the parameter struct
- * Return: characters printed
+ * Return: chars printed
 */
 int print_number(char *str, params_t *params)
 {
@@ -55,71 +55,71 @@ int print_number(char *str, params_t *params)
 }
 
 /**
- * print_number_right_shift - prints number with options
+ * print_number_right_shift - prints a number with options
  * @str: the base number as a string
  * @params: the parameter struct
  * Return: chars printed
 */
 int print_number_right_shift(char *str, params_t *params)
 {
-	unsigned int x = 0, neg, neg2, y = _strlen(str);
+	unsigned int n = 0, neg, neg2, x = _strlen(str);
 	char pad_char = ' ';
 
 	if (params->zero_flag && !params->minus_flag)
 		pad_char = '0';
 	neg = neg2 = (!params->unsign && *str == '-');
-	if (neg && y < params->width && pad_char == '0' && !params->minus_flag)
+	if (neg && x < params->width && pad_char == '0' && !params->minus_flag)
 		str++;
 	else
 		neg = 0;
 	if ((params->plus_flag && !neg2) ||
 		(!params->plus_flag && params->space_flag && !neg2))
-		y++;
+		x++;
 	if (neg && pad_char == '0')
-		x += _putchar('-');
+		n += _putchar('-');
 	if (params->plus_flag && !neg2 && pad_char == '0' && !params->unsign)
-		x += _putchar('+');
+		n += _putchar('+');
 	else if (!params->plus_flag && params->space_flag && !neg2 &&
 		!params->unsign && params->zero_flag)
-		x += _putchar(' ');
-	while (y++ < params->width)
-		x += _putchar(pad_char);
+		n += _putchar(' ');
+	while (x++ < params->width)
+		n += _putchar(pad_char);
 	if (neg && pad_char == ' ')
-		x += _putchar('-');
+		n += _putchar('-');
 	if (params->plus_flag && !neg2 && pad_char == ' ' && !params->unsign)
-		x += _putchar('+');
+		n += _putchar('+');
 	else if (!params->plus_flag && params->space_flag && !neg2 &&
 		!params->unsign && !params->zero_flag)
-		x += _putchar(' ');
-	x += _put(str);
-	return (x);
+		n += _putchar(' ');
+	n += _puts(str);
+		return (n);
 }
 
 /**
  * print_number_left_shift - prints a number with options
  * @str: the base number as a string
  * @params: the parameter struct
- * Return: characters printed
+ * Return: chars printed
 */
 int print_number_left_shift(char *str, params_t *params)
 {
-	unsigned int x = 0, neg, neg2, y = _strlen(str);
+	unsigned int n = 0, neg, neg2, x = _strlen(str);
 	char pad_char = ' ';
 
 	if (params->zero_flag && !params->minus_flag)
 		pad_char = '0';
 	neg = neg2 = (!params->unsign && *str == '-');
-	if (neg && y < params->width && pad_char == '0' && !params->minus_flag)
+	if (neg && x < params->width && pad_char == '0' && !params->minus_flag)
 		str++;
 	else
 		neg = 0;
 
 	if (params->plus_flag && !neg2 && !params->unsign)
-		x += _putchar('+'), y++;
+		n += _putchar('+'), x++;
 	else if (params->space_flag && !neg2 && !params->unsign)
-		x += _putchar(' '), y++;
-	x += _put(str);
-	while (y++ < params->width)
-		x += _putchar(pad_char);
-		return (x);
+		n += _putchar(' '), x++;
+	n += _puts(str);
+	while (x++ < params->width)
+		n += _putchar(pad_char);
+	return (n);
 }
