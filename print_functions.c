@@ -7,6 +7,7 @@
  *
  * Return: number chars printed
  */
+
 int print_char(va_list ap, params_t *params)
 {
 	char pad_char = ' ';
@@ -28,6 +29,7 @@ int print_char(va_list ap, params_t *params)
  *
  * Return: number chars printed
  */
+
 int print_int(va_list ap, params_t *params)
 {
 	long l;
@@ -48,6 +50,7 @@ int print_int(va_list ap, params_t *params)
  *
  * Return: number chars printed
  */
+
 int print_string(va_list ap, params_t *params)
 {
 	char *str = va_arg(ap, char *), pad_char = ' ';
@@ -68,7 +71,7 @@ int print_string(va_list ap, params_t *params)
 			for (i = 0; i < pad; i++)
 				sum += _putchar(*str++);
 		else
-			sum += _put(str);
+			sum += _puts(str);
 	}
 	while (j++ < params->width)
 		sum += _putchar(pad_char);
@@ -78,7 +81,7 @@ int print_string(va_list ap, params_t *params)
 			for (i = 0; i < pad; i++)
 				sum += _putchar(*str++);
 		else
-			sum += _put(str);
+			sum += _puts(str);
 	}
 	return (sum);
 }
@@ -90,6 +93,7 @@ int print_string(va_list ap, params_t *params)
  *
  * Return: number chars printed
  */
+
 int print_percent(va_list ap, params_t *params)
 {
 	(void)ap;
@@ -104,6 +108,7 @@ int print_percent(va_list ap, params_t *params)
  *
  * Return: number chars printed
  */
+
 int print_S(va_list ap, params_t *params)
 {
 	char *str = va_arg(ap, char *);
@@ -121,7 +126,7 @@ int print_S(va_list ap, params_t *params)
 			hex = convert(*str, 16, 0, params);
 			if (!hex[1])
 				sum += _putchar('0');
-			sum += _put(hex);
+			sum += _puts(hex);
 		}
 		else
 		{
