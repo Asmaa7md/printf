@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * _put - prints a string with newline
- * @str:  string to print
+ * _puts - prints a string with newline
+ * @str: the string to print
  *
  * Return: void
  */
@@ -16,7 +16,6 @@ int _puts(char *str)
 	return (str - a);
 }
 
-
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
@@ -27,15 +26,15 @@ int _puts(char *str)
 
 int _putchar(int c)
 {
-	static int r;
+	static int h;
 	static char buf[OUTPUT_BUF_SIZE];
 
-	if (c == BUF_FLUSH || r >= OUTPUT_BUF_SIZE)
+	if (c == BUF_FLUSH || h >= OUTPUT_BUF_SIZE)
 	{
-		write(1, buf, r);
-		r = 0;
+		write(1, buf, h);
+		h = 0;
 	}
 	if (c != BUF_FLUSH)
-		buf[r++] = c;
+		buf[h++] = c;
 	return (1);
 }
